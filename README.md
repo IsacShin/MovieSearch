@@ -1,16 +1,7 @@
-# movieapp
+# (Flutter) MovieSearch 🎥
 
-A new Flutter project.
+- 오픈API를 이용한 영화 검색 기능 구현
+- 해당 영화 상세정보 웹뷰 구현
+- flutter_search_bar를 이용한 검색창 구현
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![movie](https://user-images.githubusercontent.com/103344454/167249341-25d9d921-8d94-4dca-af16-1a595a4b7668.gif)
