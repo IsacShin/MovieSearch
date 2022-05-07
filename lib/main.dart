@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
+import 'package:movieapp/data/api.dart';
+import 'package:movieapp/data/movie.dart';
 import 'package:movieapp/detail.dart';
+import 'package:movieapp/widgets/moviebox.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   late SearchBar searchBar;
 
+  List<Movie> data = [];
+
+  _getFirstData(String keyword) async {
+    CommonApi api = CommonApi();
+    data = await api.getMovieData(keyword);
+    setState(() {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailWidget(data: data)));
+    });
+  }
+
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
         title: const Text('Movie Search'),
@@ -51,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (context == null) {
         return;
       }
-
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailWidget(value: value)));
-      print("keyword:$value");
+      _getFirstData(value);
     });
   }
 
@@ -81,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
-            Text("찾고싶은 영화를 검색해주세요", style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),)
+            Text("찾고싶은 영화를 검색해주세요.", style: TextStyle(fontSize: 16, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),)
           ],
         ),
       )
