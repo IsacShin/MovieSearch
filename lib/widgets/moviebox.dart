@@ -11,7 +11,7 @@ class MovieBoxWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Colors.black12,
+      color: Colors.white10,
       margin: EdgeInsets.fromLTRB(0, 5, 5, 0),
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       height: 163,
